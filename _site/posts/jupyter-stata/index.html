@@ -274,7 +274,8 @@ window.Quarto = {
   <li><a href="#sec-nodejs" id="toc-sec-nodejs" class="nav-link" data-scroll-target="#sec-nodejs"><span class="header-section-number">3.2.1</span> 配 Node.js 环境</a>
   <ul class="collapse">
   <li><a href="#安装-nvm" id="toc-安装-nvm" class="nav-link" data-scroll-target="#安装-nvm"><span class="header-section-number">3.2.1.1</span> 安装 NVM</a></li>
-  <li><a href="#在-nvm-中装配-node.js" id="toc-在-nvm-中装配-node.js" class="nav-link" data-scroll-target="#在-nvm-中装配-node.js"><span class="header-section-number">3.2.1.2</span> 在 NVM 中装配 Node.js</a></li>
+  <li><a href="#当前有效2026-年在-nvm-中装配-node.js" id="toc-当前有效2026-年在-nvm-中装配-node.js" class="nav-link" data-scroll-target="#当前有效2026-年在-nvm-中装配-node.js"><span class="header-section-number">3.2.1.2</span> （当前有效）2026 年在 NVM 中装配 Node.js</a></li>
+  <li><a href="#已失效2024-年在-nvm-中装配-node.js" id="toc-已失效2024-年在-nvm-中装配-node.js" class="nav-link" data-scroll-target="#已失效2024-年在-nvm-中装配-node.js"><span class="header-section-number">3.2.1.3</span> （已失效）2024 年在 NVM 中装配 Node.js</a></li>
   </ul></li>
   <li><a href="#安装-jupyterlab-desktop" id="toc-安装-jupyterlab-desktop" class="nav-link" data-scroll-target="#安装-jupyterlab-desktop"><span class="header-section-number">3.2.2</span> 安装 JupyterLab Desktop</a></li>
   <li><a href="#设置-jupyterlab-desktop" id="toc-设置-jupyterlab-desktop" class="nav-link" data-scroll-target="#设置-jupyterlab-desktop"><span class="header-section-number">3.2.3</span> 设置 JupyterLab Desktop</a>
@@ -324,6 +325,19 @@ window.Quarto = {
 <p>请检查确认你已经成功安装 Stata。</p>
 </div>
 </div>
+<div class="callout callout-style-default callout-warning callout-titled" title="Stata 版本要求">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">警告</span>Stata 版本要求
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>请检查确认你已经成功安装 Stata。</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled" title="跳跃提示">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -367,8 +381,21 @@ Miniconda 也是 Anaconda 的产品，虽然现在不对任何人收费，但以
 <p>以下两个地址都可以下载到最新正式版 exe 格式文件，下载后点开安装就可以。<a href="https://github.com/conda-forge/miniforge/#windows" target="_blank">原文</a><br>
 <a href="https://conda-forge.org/miniforge/" target="_blank">conda-forge 官网下载地址</a><br>
 <a href="https://github.com/conda-forge/miniforge/releases" target="_blank">GitHub 仓库下载地址</a></p>
+<div class="callout callout-style-default callout-important callout-titled" title="不能勾选「为所有用户安装」">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span>不能勾选「为所有用户安装」
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>「仅为我安装」是默认推荐项。如果你拒绝了这一推荐，容易出现与 Windows 预装文件冲突的问题。而且，本教程后续内容都无法指导你的实际情况。</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-warning callout-titled" title="全英文路径和 Windows Username 有关">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -377,19 +404,22 @@ Miniconda 也是 Anaconda 的产品，虽然现在不对任何人收费，但以
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>如果你的 Windows 用户名含有英文 26 个拉丁字母以外的字符，这会导致安装路径不是纯英文的，从而安装失败。这在可预见的将来都没有解决方法，你只能换个 Windows 用户名了。 详见 <a href="https://github.com/conda-forge/miniforge/issues/484" target="_blank">此 Issue</a></p>
+<p>如果你的 Windows 用户名含有英文 26 个拉丁字母以外的字符，则安装路径不是纯英文的，从而安装失败。<br>
+如果要遵守装在用户文件夹的原则，那么在可预见的将来都没有解决方法，你只能换个 Windows 用户名了。<br>
+如果换个文件夹路径安装，也许有用，但我不了解具体情况，不能保证一定可行。<br>
+详见 <a href="https://github.com/conda-forge/miniforge/issues/484" target="_blank">此 Issue</a></p>
 </div>
 </div>
 </div>
 </section>
 <section id="环境变量" class="level4" data-number="2.1.2">
 <h4 data-number="2.1.2" class="anchored" data-anchor-id="环境变量"><span class="header-section-number">2.1.2</span> 环境变量</h4>
-<p>也许你刚才在安装 exe 时出于安全考虑而没有勾选自动添加环境变量。<br>
+<p>也许你刚才在安装 exe 时已经看到，程序建议你出于安全考虑，为了避免与电脑上其他版本的 Python 冲突，不要勾选自动添加环境变量。于是你肯定没有勾选。<br>
 Miniforge Prompt 本身并不需要设定环境变量。现在可以跳到 <a href="#sec-virtualenv" class="quarto-xref">小节&nbsp;2.1.3</a></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="非必需操作（点击展开）">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -398,7 +428,7 @@ Miniforge Prompt 本身并不需要设定环境变量。现在可以跳到 <a hr
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>如果你希望使用 cmd 或者 Powershell 之类，那么按以下操作：</p>
 <ol type="1">
@@ -406,7 +436,7 @@ Miniforge Prompt 本身并不需要设定环境变量。现在可以跳到 <a hr
 <li>点击「高级」选项卡</li>
 <li>点开「环境变量」</li>
 <li>单击「系统变量」当中的「Path」<span class="math inline">\Rightarrow</span> 单击「编辑」进入「编辑环境变量」窗口</li>
-<li>单击「新建」来创建路径，通常安装 miniforge 的文件夹默认在 C 盘，是 <code>C:\\miniforge3</code>，那么你要新建的三个路径就是</li>
+<li>单击「新建」来创建路径，通常安装 miniforge 的文件夹默认在 C 盘。假如是 <code>C:\\miniforge3</code>（视你的具体情况理解），那么你要新建的三个路径就是</li>
 </ol>
 <pre><code>C:\miniforge3  
 C:\miniforge3\Scripts  
@@ -435,6 +465,21 @@ C:\miniforge3\Library\bin</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> create <span class="at">-n</span> xxx python=yyy</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <p>例如，假设我要创建一个名为<code>jupyter_stata</code>的环境，python 版本号为<code>3.11.9</code>：</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> create <span class="at">-n</span> jupyter_stata python=3.11.9</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-important callout-titled" title="Stata 版本和 Python 版本在 nbstata 中的对应关系">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span>Stata 版本和 Python 版本在 nbstata 中的对应关系
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Stata 17 可以在 nbstata 下运行，支持 Python 3.10、3.11、3.12 和 3.13，但不支持 Python 3.14。</p>
+<p>Stata 18、18.5、19 和 19.5 用户可以在 Python 3.10、3.11、3.12、3.13 和 3.14 下运行 nbstata 。</p>
+<p>但是，对于 Python 3.14，用户需要将 Stata 版本更新至 2025 年 11 月 12 日的修订版（或更高版本）。要在查看 Stata 当前版本的修订日期，请在 Stata 中运行 <code>about</code> 命令。</p>
+</div>
+</div>
 <p>接着激活这个环境：</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> activate jupyter_stata</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <p>如果无效，可考虑用 conda 代替操作：（conda 和 mamba 互换通常是可行的，但是使用 conda 默认通道下载某个软件包代表为此后使用行为承担商业法律责任，除非指定使用 conda-forge 通道）</p>
@@ -460,6 +505,7 @@ C:\miniforge3\Library\bin</code></pre>
 </section>
 <section id="sec-kernel" class="level3" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="sec-kernel"><span class="header-section-number">2.3</span> 配 Jupyter 内核</h3>
+<p>打开一扇新的 Miniforge Prompt 窗口（原先的可以关掉了），激活刚才使用的环境。</p>
 <section id="安装内核" class="level4" data-number="2.3.1">
 <h4 data-number="2.3.1" class="anchored" data-anchor-id="安装内核"><span class="header-section-number">2.3.1</span> 安装内核</h4>
 <p>下载安装 nbstata 软件包：</p>
@@ -527,7 +573,7 @@ C:\miniforge3\Library\bin</code></pre>
 <td style="text-align: center;"><code>echo</code></td>
 <td>想必你知道<br>用 Jupyter 跑 Python 没有回声<br>那 Jupyter 里的 Stata 怎么办</td>
 <td>三选一 <span class="math inline">\Downarrow</span><br><code>True</code> 一切命令都有回声<br><code>False</code> cell 仅一行命令时不回声；其他 cell 有回声<br><code>None</code> 完全没有回声</td>
-<td>想必你已经知道 Stata 有个对用户很友好的默认设定，就是会在输出窗口先显示你给的输入，再显示给你的输出<br>这个功能被叫作「回声」</td>
+<td>想必你已经知道 Stata 有个对用户很友好的默认设定，就是会在输出窗口先显示你给它的输入，接着再显示它给你的输出<br>这个功能被叫作「回声」</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;"><code>missing</code></td>
@@ -547,7 +593,7 @@ graph_width = 5.5in
 graph_height = 4in
 echo = False
 missing = .</code></pre>
-<p>——莫忘了 Ctrl + S 保存。</p>
+<p>——别忘了 Ctrl + S 保存。</p>
 </section>
 </section>
 </section>
@@ -563,10 +609,11 @@ missing = .</code></pre>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>请注意，以下论述是 2024 年 4 月写的。<br>
+<p>　　请注意，以下论述是 2024 年 4 月写的。<br>
 到 2024 年 12 月中旬，由于 DeepSeek-V3 开源发布，<br>
 VS Code 的 LLM 辅助编程生态已经甩开 JupyterLab 很长距离，<br>
-JupyterLab 的优势仅剩下因为设置简单而容易复现。</p>
+JupyterLab 的优势仅剩下一条：<br>
+　　因为设置简单而容易在别人的电脑上复现。</p>
 </div>
 </div>
 <p>虽然在 VS Code 丰富的社区扩展生态和灵活的语法高亮前，原生 Jupyter 已经没有多少吸引力（而且 Jupyter 受财力限制，目前没有，未来也不太可能学微软砸钱给 GitHub Copilot 教育优惠的免费 LLM 辅助），但考虑到读者朋友多来自社科专业，大概率是 Jupyter 原住民，而且 VS Code 由于可自定义的设置太多，常常难以复现，所以还是介绍一下原生 Jupyter 的配置。</p>
@@ -600,7 +647,7 @@ JupyterLab 的优势仅剩下因为设置简单而容易复现。</p>
 <p><a href="https://github.com/nvm-sh/nvm" target="_blank">nvm</a> 本身是个 Unix 应用，只能在 Linux 等类 Unix 操作系统（例如 Android iOS macOS）运行，Windows 享受不到。<br>
 好在 <a href="https://github.com/coreybutler" target="_blank">Corey Butler</a> 开发了 <a href="https://github.com/coreybutler/nvm-windows" target="_blank">NVM for Windows</a> 作为使用上的代替。</p>
 <div class="callout callout-style-default callout-note callout-titled" title="卸载干净">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -609,7 +656,7 @@ JupyterLab 的优势仅剩下因为设置简单而容易复现。</p>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse show">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>我假定你没有在自己电脑上安装过 Node.js 或 npm。<br>
 如果有，卸载后可以在 cmd 或 Powershell 用 <code>where node</code> 帮助删除残余文件夹，<br>
@@ -617,7 +664,7 @@ JupyterLab 的优势仅剩下因为设置简单而容易复现。</p>
 </div>
 </div>
 </div>
-<p>在 <a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank">这个地址</a> 找到「Latest」版本底下的「Assets」，下载 exe 文件。</p>
+<p>在 <a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank">这个地址</a> 找到「Latest」版本底下的「Assets」，下载 setup.exe 文件。</p>
 <div class="callout callout-style-default callout-important callout-titled" title="安装过程中，设路径时">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -628,20 +675,47 @@ JupyterLab 的优势仅剩下因为设置简单而容易复现。</p>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Node.js Symlink 的文件夹路径要设为尚<strong>不</strong>存在的文件夹。</p>
+<p>Node.js Symlink 的文件夹路径<strong>要</strong>设为尚<strong>不</strong>存在的文件夹。</p>
 </div>
 </div>
 <p>装完以后按 Win + R，输入 <code>powershell</code> 按 Ctrl + Shift + Enter，弹出<strong>以管理员身份运行</strong>的 Window Powershell 窗口。<br>
 输入 <code>nvm -v</code>，如果返回了当前 nvm 的版本号，就说明安装成功了。<br>
 <u><strong>不要关闭这个窗口。</strong></u></p>
 </section>
-<section id="在-nvm-中装配-node.js" class="level5" data-number="3.2.1.2">
-<h5 data-number="3.2.1.2" class="anchored" data-anchor-id="在-nvm-中装配-node.js"><span class="header-section-number">3.2.1.2</span> 在 NVM 中装配 Node.js</h5>
+<section id="当前有效2026-年在-nvm-中装配-node.js" class="level5" data-number="3.2.1.2">
+<h5 data-number="3.2.1.2" class="anchored" data-anchor-id="当前有效2026-年在-nvm-中装配-node.js"><span class="header-section-number">3.2.1.2</span> （当前有效）2026 年在 NVM 中装配 Node.js</h5>
 <p>查看可安装的 Node JS 版本：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nvm</span> list available</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nvm</span> list releases</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>安装最新的 LTS 版：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nvm</span> install lts</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>激活最新的 LTS 版：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nvm</span> use lts</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>更新 npm 至最新：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> <span class="at">-g</span> install npm</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>检查当前版本号：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> <span class="at">-v</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> <span class="at">-v</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-important callout-titled" title="如果 nvm use 出现乱码或有其他故障">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span>如果 nvm use 出现乱码或有其他故障
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>请检查「以管理员身份运行」这一步，它非常重要。</p>
+</div>
+</div>
+</section>
+<section id="已失效2024-年在-nvm-中装配-node.js" class="level5" data-number="3.2.1.3">
+<h5 data-number="3.2.1.3" class="anchored" data-anchor-id="已失效2024-年在-nvm-中装配-node.js"><span class="header-section-number">3.2.1.3</span> （已失效）2024 年在 NVM 中装配 Node.js</h5>
+<p>查看可安装的 Node JS 版本：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nvm</span> list available</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <p>此时会返回与以下类似的输出。</p>
 <div class="callout callout-style-default callout-caution callout-titled" title="点击展开">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -650,7 +724,7 @@ JupyterLab 的优势仅剩下因为设置简单而容易复现。</p>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <pre><code>|   CURRENT    |     LTS      |  OLD STABLE  | OLD UNSTABLE |
 |--------------|--------------|--------------|--------------|
@@ -681,14 +755,11 @@ This is a partial list. For a complete list, visit https://nodejs.org/en/downloa
 </div>
 <p>其中 LTS 代表 Long-term Support，表示这些版本是可以长期稳定运行的。显然你应该从这一列选。我暂时见过的用到 Node.js 的应用对版本的要求要么是 <code>&gt;=18.0.0</code>，要么就是<code>&lt;=18.0.0, &gt;=20.0.0</code>，所以选择 20 以上的比较靠谱。</p>
 <p>假如你选择了 <code>22.11.0</code>：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nvm</span> install 22.11.0</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p><br>
-在不同版本之间切换：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nvm</span> use 20.12.2</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nvm</span> install 22.11.0</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>在不同版本之间切换使用：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nvm</span> use 20.12.2</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <p>换回来：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nvm</span> use 22.11.0</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p><br>
-</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nvm</span> use 22.11.0</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-important callout-titled" title="如果 nvm use 出现乱码或有其他故障">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -719,7 +790,7 @@ This is a partial list. For a complete list, visit https://nodejs.org/en/downloa
 退出 App；<br>
 打开 Miniforge Prompt，激活刚才你使用的环境；<br>
 用以下命令安装中文语言包</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install jupyterlab-language-pack-zh-CN</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install jupyterlab-language-pack-zh-CN</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <p>再打开 App，在网页的 Settings－Language 选中 <code>Chinese (Simplified, China) - 中文 (简体, 中国)</code></p>
 </section>
 </section>
@@ -757,11 +828,11 @@ This is a partial list. For a complete list, visit https://nodejs.org/en/downloa
 <p>按 Ctrl + Alt + Win + N，点击「Jupyter Notebook」新建 ipynb 格式文件。<br>
 点击右上角「选择内核」，选「Jupyter Kernel…」，选「Stata (nbstata)」，<br>
 在单元格内输入</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">sysuse</span> auto</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>su</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">sysuse</span> auto</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>su</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <p>得到如下输出。</p>
 <div class="callout callout-style-default callout-caution callout-titled" title="点击展开">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -770,7 +841,7 @@ This is a partial list. For a complete list, visit https://nodejs.org/en/downloa
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <pre><code>. sysuse auto
 (1978 automobile data)

@@ -18,6 +18,10 @@ Win 指的是键盘上的 Windows 徽标键，左下角 Ctrl 和 Alt 之间，�
 请检查确认你已经成功安装 Stata。
 :::
 
+::: {.callout-warning title="Stata 版本要求"}
+请检查确认你已经成功安装 Stata。
+:::
+
 ::: {.callout-tip title="跳跃提示"}
 如果你已经安装了主流 Python 环境管理器（例如 Anaconda / Miniconda / Mambaforge / Miniforge / Micromamba），请跳过 @sec-python ，直接从 @sec-jupyter 开始。\
 如果你已经安装了 Jupyter 软件包，请跳过 @sec-jupyter ，直接从 @sec-kernel 开始。\
@@ -44,14 +48,21 @@ Miniconda 也是 Anaconda 的产品，虽然现在不对任何人收费，但以
 [conda-forge 官网下载地址](https://conda-forge.org/miniforge/){target="_blank"}\
 [GitHub 仓库下载地址](https://github.com/conda-forge/miniforge/releases){target="_blank"}
 
+:::{.callout-important title="不能勾选「为所有用户安装」"}
+「仅为我安装」是默认推荐项。如果你拒绝了这一推荐，容易出现与 Windows 预装文件冲突的问题。而且，本教程后续内容都无法指导你的实际情况。
+
+:::
+
 ::: {.callout-warning collapse="false" title="全英文路径和 Windows Username 有关"}
-如果你的 Windows 用户名含有英文 26 个拉丁字母以外的字符，这会导致安装路径不是纯英文的，从而安装失败。这在可预见的将来都没有解决方法，你只能换个 Windows 用户名了。
+如果你的 Windows 用户名含有英文 26 个拉丁字母以外的字符，则安装路径不是纯英文的，从而安装失败。\
+如果要遵守装在用户文件夹的原则，那么在可预见的将来都没有解决方法，你只能换个 Windows 用户名了。\
+如果换个文件夹路径安装，也许有用，但我不了解具体情况，不能保证一定可行。\
 详见 [此 Issue](https://github.com/conda-forge/miniforge/issues/484){target="_blank"}
 :::
 
 #### 环境变量
 
-也许你刚才在安装 exe 时出于安全考虑而没有勾选自动添加环境变量。\
+也许你刚才在安装 exe 时已经看到，程序建议你出于安全考虑，为了避免与电脑上其他版本的 Python 冲突，不要勾选自动添加环境变量。于是你肯定没有勾选。\
 Miniforge Prompt 本身并不需要设定环境变量。现在可以跳到 @sec-virtualenv
 
 :::{.callout-tip title="非必需操作（点击展开）" collapse="true"}
@@ -61,7 +72,7 @@ Miniforge Prompt 本身并不需要设定环境变量。现在可以跳到 @sec-
 2.  点击「高级」选项卡
 3.  点开「环境变量」
 4.  单击「系统变量」当中的「Path」$\Rightarrow$ 单击「编辑」进入「编辑环境变量」窗口
-5.  单击「新建」来创建路径，通常安装 miniforge 的文件夹默认在 C 盘，是 `C:\\miniforge3`，那么你要新建的三个路径就是
+5.  单击「新建」来创建路径，通常安装 miniforge 的文件夹默认在 C 盘。假如是 `C:\\miniforge3`（视你的具体情况理解），那么你要新建的三个路径就是
 ``` 
 C:\miniforge3  
 C:\miniforge3\Scripts  
@@ -87,6 +98,14 @@ mamba create -n xxx python=yyy
 ``` bash
 mamba create -n jupyter_stata python=3.11.9
 ```
+
+::: {.callout-important title="Stata 版本和 Python 版本在 nbstata 中的对应关系"}
+Stata 17 可以在 nbstata 下运行，支持 Python 3.10、3.11、3.12 和 3.13，但不支持 Python 3.14。
+
+Stata 18、18.5、19 和 19.5 用户可以在 Python 3.10、3.11、3.12、3.13 和 3.14 下运行 nbstata 。
+
+但是，对于 Python 3.14，用户需要将 Stata 版本更新至 2025 年 11 月 12 日的修订版（或更高版本）。要在查看 Stata 当前版本的修订日期，请在 Stata 中运行 `about` 命令。
+:::
 
 接着激活这个环境：
 
@@ -131,6 +150,8 @@ jupyter lab
 
 ### 配 Jupyter 内核 {#sec-kernel}
 
+打开一扇新的 Miniforge Prompt 窗口（原先的可以关掉了），激活刚才使用的环境。
+
 #### 安装内核
 
 下载安装 nbstata 软件包：
@@ -164,7 +185,7 @@ pip install nbstata --upgrade
 `splash`|要不要在 Jupyter 的输出当中也显示启动报告|`True` 或 `False`|Stata 在启动时通常在输出窗口报告软件当前版本、功能状态、购买凭证等
 `graph_format`|Stata 输出图表时<br>存为什么格式|四选一&emsp;$\Downarrow$<br>`png`&thinsp;`pdf`&thinsp;`svg`&thinsp;`pystata` <br>`pystata` 的意思是和 pystata 的设置保持一致|虽然你现在可能不知道什么是 pystata<br>（我也不知道）<br>但以后可能用得上
 `graph_width`<br><br>`graph_height`|生成图表的横向尺寸<br><br>生成图表的纵向尺寸|如果不写单位，就默认是 `in`（inches 英寸）<br>单位还可以写<br>`cm`（厘米）<br>`px`（逻辑像素）|只要你填了有（填的有）数字，Stata 代码的 `xsize` 和 `ysize` 数值就被覆盖，不起作用<br>如果不想覆盖它们，就填 `default`
-`echo`|想必你知道<br>用 Jupyter 跑 Python 没有回声<br>那 Jupyter 里的 Stata 怎么办|三选一&emsp;$\Downarrow$<br>`True`&emsp;一切命令都有回声<br>`False`&emsp;cell 仅一行命令时不回声；其他 cell 有回声<br>`None`&emsp;完全没有回声|想必你已经知道 Stata 有个对用户很友好的默认设定，就是会在输出窗口先显示你给的输入，再显示给你的输出<br>这个功能被叫作「回声」
+`echo`|想必你知道<br>用 Jupyter 跑 Python 没有回声<br>那 Jupyter 里的 Stata 怎么办|三选一&emsp;$\Downarrow$<br>`True`&emsp;一切命令都有回声<br>`False`&emsp;cell 仅一行命令时不回声；其他 cell 有回声<br>`None`&emsp;完全没有回声|想必你已经知道 Stata 有个对用户很友好的默认设定，就是会在输出窗口先显示你给它的输入，接着再显示它给你的输出<br>这个功能被叫作「回声」
 `missing`|缺失值用什么表示|字符串本身即可<br>如果要和 Pandas 保持一致，就填 `pandas`|原则上不建议修改，默认的`.` 就是 Stata 唯一接受的形式
 
 以我自己的为例，最终效果大概会像这样：
@@ -180,15 +201,16 @@ graph_height = 4in
 echo = False
 missing = .
 ```
-——莫忘了 Ctrl + S 保存。
+——别忘了 Ctrl + S 保存。
 
 ## JupyterLab 方案 {#sec-jupyterlab}
 
 :::{.callout-warning title="警告！"}
-请注意，以下论述是 2024 年 4 月写的。  
+　　请注意，以下论述是 2024 年 4 月写的。  
 到 2024 年 12 月中旬，由于 DeepSeek-V3 开源发布，  
 VS Code 的 LLM 辅助编程生态已经甩开 JupyterLab 很长距离，  
-JupyterLab 的优势仅剩下因为设置简单而容易复现。
+JupyterLab 的优势仅剩下一条：\
+　　因为设置简单而容易在别人的电脑上复现。
 :::
 
 虽然在 VS Code 丰富的社区扩展生态和灵活的语法高亮前，原生 Jupyter 已经没有多少吸引力（而且 Jupyter 受财力限制，目前没有，未来也不太可能学微软砸钱给 GitHub Copilot 教育优惠的免费 LLM 辅助），但考虑到读者朋友多来自社科专业，大概率是 Jupyter 原住民，而且 VS Code 由于可自定义的设置太多，常常难以复现，所以还是介绍一下原生 Jupyter 的配置。
@@ -223,22 +245,57 @@ JupyterLab Desktop 因为基于 Electron 开发，需要靠 Node JS 实现某些
 同时要删除有关的环境变量。
 :::
 
-在 [这个地址](https://github.com/coreybutler/nvm-windows/releases){target="_blank"} 找到「Latest」版本底下的「Assets」，下载 exe 文件。
+在 [这个地址](https://github.com/coreybutler/nvm-windows/releases){target="_blank"} 找到「Latest」版本底下的「Assets」，下载 setup.exe 文件。
 
 :::{.callout-important title="安装过程中，设路径时"}
-Node.js Symlink 的文件夹路径要设为尚**不**存在的文件夹。
+Node.js Symlink 的文件夹路径**要**设为尚**不**存在的文件夹。
 :::
 
 装完以后按 Win + R，输入 `powershell` 按 Ctrl + Shift + Enter，弹出**以管理员身份运行**的 Window Powershell 窗口。\
 输入 `nvm -v`，如果返回了当前 nvm 的版本号，就说明安装成功了。\
 [**不要关闭这个窗口。**]{.underline}
 
-##### 在 NVM 中装配 Node.js
+##### （当前有效）2026 年在 NVM 中装配 Node.js
+
+查看可安装的 Node JS 版本：
+```bash
+nvm list releases
+```
+
+安装最新的 LTS 版：
+```bash
+nvm install lts
+```
+
+激活最新的 LTS 版：
+```bash
+nvm use lts
+```
+
+更新 npm 至最新：
+```bash
+npm -g install npm
+```
+
+检查当前版本号：
+```bash
+node -v
+```
+```bash
+npm -v
+```
+
+:::{.callout-important title="如果 nvm use 出现乱码或有其他故障"}
+请检查「以管理员身份运行」这一步，它非常重要。
+:::
+
+##### （已失效）2024 年在 NVM 中装配 Node.js
 
 查看可安装的 Node JS 版本：
 ```bash
 nvm list available
 ```
+
 此时会返回与以下类似的输出。
 
 :::{.callout-caution title="点击展开" collapse="true"}
@@ -277,8 +334,7 @@ This is a partial list. For a complete list, visit https://nodejs.org/en/downloa
 ```bash
 nvm install 22.11.0
 ```
-\
-在不同版本之间切换：
+在不同版本之间切换使用：
 ```bash
 nvm use 20.12.2
 ```
@@ -286,7 +342,6 @@ nvm use 20.12.2
 ```bash
 nvm use 22.11.0
 ```
-\
 
 :::{.callout-important title="如果 nvm use 出现乱码或有其他故障"}
 请检查「以管理员身份运行」这一步，它非常重要。
