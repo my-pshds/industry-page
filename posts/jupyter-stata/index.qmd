@@ -62,7 +62,6 @@ Miniforge Prompt 本身并不需要设定环境变量。现在可以跳到 @sec-
 3.  点开「环境变量」
 4.  单击「系统变量」当中的「Path」$\Rightarrow$ 单击「编辑」进入「编辑环境变量」窗口
 5.  单击「新建」来创建路径，通常安装 miniforge 的文件夹默认在 C 盘，是 `C:\\miniforge3`，那么你要新建的三个路径就是
-6.  
 ``` 
 C:\miniforge3  
 C:\miniforge3\Scripts  
